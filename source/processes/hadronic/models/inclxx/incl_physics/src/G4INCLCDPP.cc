@@ -59,8 +59,8 @@ namespace G4INCL {
     Sk = 0.0;
     TbelowTf = 0.0;
 
-    std::for_each(remnantParticles.begin(), remnantParticles.end(), std::bind1st(std::mem_fun(&G4INCL::CDPP::processOneParticle), this));
-    std::for_each(created.begin(), created.end(), std::bind1st(std::mem_fun(&G4INCL::CDPP::processOneParticle), this));
+    std::for_each(remnantParticles.begin(), remnantParticles.end(), std::bind(std::mem_fun(&G4INCL::CDPP::processOneParticle), this));
+    std::for_each(created.begin(), created.end(), std::bind(std::mem_fun(&G4INCL::CDPP::processOneParticle), this));
 
     const G4double Tinitial = nucleus->getInitialInternalEnergy();
     const G4double Eblock = TbelowTf - Tinitial - Sk - S;
